@@ -1,4 +1,4 @@
-package: UserAgent
+package: user_agent
 version: '1.0.0'
 author: Sascha Weidner
 supportpage: https://github.com/factorylabs/redaxo_user_agent
