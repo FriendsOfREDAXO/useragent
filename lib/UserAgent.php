@@ -12,7 +12,7 @@ class UserAgent {
     'version' => '',
     'engine' => '',
     'string' => '',
-    'class' => '',
+    'class' => [],
   ];
 
   private $os = [
@@ -55,10 +55,12 @@ class UserAgent {
   public function __construct() {
     $this->MobileDetect = new Mobile_Detect();
 
+    $class = [];
+
     if(!is_object($this->ua))
       $this->ua = (object)$this->ua;
 
-    $this->string = $this->getUserAgents();
+    $this->string = $this->getUserAgent();
 
     // Operating system
     foreach ($this->os as $k=>$v) {
@@ -74,16 +76,16 @@ class UserAgent {
       if (stripos($this->string, $k) !== false) {
         $this->browser = $v['browser'];
         $this->shorty  = $v['shorty'];
-        $this->version = explode('.',preg_replace($v['version'], '$1', $ua))[0];
+        $this->version = explode('.',preg_replace($v['version'], '$1', $this->string))[0];
         $this->engine  = $v['engine'];
         break;
       }
     }
 
-    $this->class = [$this->os,$this->browser,$this->engine];
+    $class = [$this->os,$this->browser,$this->engine];
 
     if ($this->version != '')
-      $this->class[] = $this->shorty.$this->version;
+      $class[] = $this->shorty.$this->version;
 
     // Android tablets are not mobile (see #4150 and #5869)
     if ($this->os == 'android' && $this->engine != 'presto' && stripos($this->string, 'mobile') === false)
@@ -95,12 +97,12 @@ class UserAgent {
       $mobile = true;
 
     if($this->mobile)
-      $this->class[] = 'mobile';
+      $class[] = 'mobile';
     if($this->touch)
-      $this->class[] = 'touch';
-    else $this->class[] = 'noTouch';
+      $class[] = 'touch';
+    else $class[] = 'noTouch';
     if ($this->tablet)
-      $this->class[] = 'tablet';
+      $class[] = 'tablet';
 
     $this->tablet   = $tablet;
     $this->browser  = $browser;
@@ -110,19 +112,19 @@ class UserAgent {
     $this->engine   = $engine;
     $this->versions = $versions;
     $this->mobile   = $mobile;
-    $this->class = implode(' ',$this->class);
+    $this->class = implode(' ',$class);
   }
 
   public function __set($property, $value) {
     if(!is_object($this->ua))
       $this->ua = (object)$this->ua;
 
-    $this->ua->$propery = $value;
+    $this->ua->$property = $value;
   }
 
   public function __call($func,$var) {
     if(method_exists($this->MobileDetect,$func)) {
-      return $this->MobileDetect->func($var);
+      return $this->MobileDetect->$func($var);
     }
   }
 
