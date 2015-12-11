@@ -36,3 +36,26 @@ UserAgent nutzt unter Anderem Mobile_Detect um zu erkennen mit welchem Browser, 
 		<td>Mobile-Gerät: true | false.</td>
 	</tr>
 </table>
+
+## Template
+
+Im folgenden Code-Beispiel kann man sehen, wie die oben gezeigten Variablen genutzt werden können. 
+
+```
+<?php
+$ua = new UserAgent();
+$ua = $ua->getAgent();
+?><!DOCTYPE html>
+<html class="<?php echo $ua->class;?> no-js" lang="de-CH">
+	<!-- html goes here -->
+	<head>
+		<!-- head options ... -->
+		<?php if($ua->mobile || $ua->tablet) {?>
+    	<link rel="apple-touch-icon" href="_img/res/apple-touch-icon-precomposed.png">
+    	<meta name="msapplication-TileImage" content="_img/res/apple-touch-icon-precomposed.png">
+    	<meta name="msapplication-TileColor" content="#ffffff">
+    	<?php }?>
+		<!-- more head options ... -->
+	</head>
+</html>
+```
