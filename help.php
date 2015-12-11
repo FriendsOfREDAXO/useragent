@@ -1,0 +1,1 @@
+<p>Beschreibung auf Github: <a href="https://github.com/factorylabs/redaxo_user_agent" target="_blank">https://github.com/factorylabs/redaxo_user_agent</a></p>
