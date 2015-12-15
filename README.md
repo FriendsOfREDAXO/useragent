@@ -62,6 +62,8 @@ $ua = $ua->getAgent();
 </html>
 ```
 
+### no-js
+
 In einem Javascript-File dass später geladen wird, kann dann no-js wie folgt entfernt werden:
 
 ```
