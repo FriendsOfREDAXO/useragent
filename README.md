@@ -2,6 +2,10 @@
 
 UserAgent nutzt unter Anderem Mobile_Detect um zu erkennen mit welchem Browser, Betriebssystem und Gerätetyp der Besucher die Seite aufgerufen hat. Dabei liefert UserAgent diverse Informationen die aus dem mitgelieferten Header des Browsers aufbereitet werden.
 
+##Support-Beschleunigung
+
+[Amazon Wunschliste](https://www.amazon.de/gp/registry/wishlist/3IW6TE09RDGV2)
+
 ## Variablen
 
 <table width="100%">
