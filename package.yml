@@ -1,4 +1,4 @@
-package: user_agent
-version: '1.0.0'
-author: Sascha Weidner
-supportpage: https://github.com/factorylabs/redaxo_user_agent
+package: rex_useragent
+version: '1.0.1'
+author: Thomas Kaegi
+supportpage: https://github.com/phoebusryan/rex_useragent
