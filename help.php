@@ -46,14 +46,14 @@
 	
 	$code = "";
 	$code .= "<?php".PHP_EOL;
-	$code .= "	if (useragent::isiOS()) {".PHP_EOL;
+	$code .= "	if (useragent::isBrowserFirefox()) {".PHP_EOL;
 	$code .= "		//...".PHP_EOL;
 	$code .= "	}".PHP_EOL;
 	$code .= "?>";
 	
 	$fragment = new rex_fragment();
 	$fragment->setVar('class', 'info', false);
-	$fragment->setVar('title', 'Prüfen ob das aktuelle Gerät iOS nutzt', false); //todo: translate
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Firefox ist', false); //todo: translate
 	$fragment->setVar('body', rex_string::highlight($code), false);
 	echo $fragment->parse('core/page/section.php');
 	
@@ -61,14 +61,74 @@
 	
 	$code = "";
 	$code .= "<?php".PHP_EOL;
-	$code .= "	if (useragent::isAndroidOS()) {".PHP_EOL;
+	$code .= "	if (useragent::isBrowserOpera()) {".PHP_EOL;
 	$code .= "		//...".PHP_EOL;
 	$code .= "	}".PHP_EOL;
 	$code .= "?>";
 	
 	$fragment = new rex_fragment();
 	$fragment->setVar('class', 'info', false);
-	$fragment->setVar('title', 'Prüfen ob das aktuelle Gerät Android nutzt', false); //todo: translate
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Opera ist', false); //todo: translate
+	$fragment->setVar('body', rex_string::highlight($code), false);
+	echo $fragment->parse('core/page/section.php');
+	
+	///
+	
+	$code = "";
+	$code .= "<?php".PHP_EOL;
+	$code .= "	if (useragent::isBrowserSafari()) {".PHP_EOL;
+	$code .= "		//...".PHP_EOL;
+	$code .= "	}".PHP_EOL;
+	$code .= "?>";
+	
+	$fragment = new rex_fragment();
+	$fragment->setVar('class', 'info', false);
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Safari ist', false); //todo: translate
+	$fragment->setVar('body', rex_string::highlight($code), false);
+	echo $fragment->parse('core/page/section.php');
+	
+	///
+	
+	$code = "";
+	$code .= "<?php".PHP_EOL;
+	$code .= "	if (useragent::isBrowserChrome()) {".PHP_EOL;
+	$code .= "		//...".PHP_EOL;
+	$code .= "	}".PHP_EOL;
+	$code .= "?>";
+	
+	$fragment = new rex_fragment();
+	$fragment->setVar('class', 'info', false);
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Chrome ist', false); //todo: translate
+	$fragment->setVar('body', rex_string::highlight($code), false);
+	echo $fragment->parse('core/page/section.php');
+	
+	///
+	
+	$code = "";
+	$code .= "<?php".PHP_EOL;
+	$code .= "	if (useragent::isBrowserInternetExplorer()) {".PHP_EOL;
+	$code .= "		//...".PHP_EOL;
+	$code .= "	}".PHP_EOL;
+	$code .= "?>";
+	
+	$fragment = new rex_fragment();
+	$fragment->setVar('class', 'info', false);
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Internet Explorer ist', false); //todo: translate
+	$fragment->setVar('body', rex_string::highlight($code), false);
+	echo $fragment->parse('core/page/section.php');
+	
+	///
+	
+	$code = "";
+	$code .= "<?php".PHP_EOL;
+	$code .= "	if (useragent::isBrowserEdge()) {".PHP_EOL;
+	$code .= "		//...".PHP_EOL;
+	$code .= "	}".PHP_EOL;
+	$code .= "?>";
+	
+	$fragment = new rex_fragment();
+	$fragment->setVar('class', 'info', false);
+	$fragment->setVar('title', 'Prüfen ob der aktuelle Browser Edge ist', false); //todo: translate
 	$fragment->setVar('body', rex_string::highlight($code), false);
 	echo $fragment->parse('core/page/section.php');
 ?>
