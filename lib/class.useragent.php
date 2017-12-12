@@ -31,6 +31,14 @@
 		//End - methods from Mobile_Detect
 		
 		//Start - methods from Browser
+			public static function getBrowser() {
+				if (empty(self::$browser)) {
+					self::init();
+				}
+				
+				return self::$browser->getBrowser();
+			}
+			
 			public static function getBrowserVersion() {
 				if (empty(self::$browser)) {
 					self::init();
