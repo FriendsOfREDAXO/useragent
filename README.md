@@ -1,6 +1,6 @@
 # Useragent
 
-Das AddOn stellt Classes und Methoden zur Ermittlung des Endgeräres zur Verfügung. 
+Das AddOn hilft bei der Ermittlung des Endgerätes. 
 
 Neben der verkürzten Anwandung über die Useragent-Class, kann auch auf die mitgelieferten Vendor-Classes [Mobile_detect](https://github.com/serbanghita/Mobile-Detect) und [Browser.php](https://chrisschuld.com/projects/browser-php-detecting-a-users-browser-from-php/) direkt zurückgegriffen werden. 
 
