@@ -1,4 +1,5 @@
 <?php
+
 /**
  * File: Browser.php
  * Author: Chris Schuld (http://chrisschuld.com/)
@@ -915,27 +916,22 @@ class Browser
             if (isset($aresult[1])) {
                 $this->setBrowser(self::BROWSER_IE);
                 $this->setVersion(str_replace(array('(', ')', ';'), '', $aresult[1]));
-                if(preg_match('#trident/([0-9\.]+);#i', $this->_agent, $aresult)){
-                    if($aresult[1] == '3.1'){
+                if (preg_match('#trident/([0-9\.]+);#i', $this->_agent, $aresult)) {
+                    if ($aresult[1] == '3.1') {
                         $this->setVersion('7.0');
-                    }
-                    else if($aresult[1] == '4.0'){
+                    } else if ($aresult[1] == '4.0') {
                         $this->setVersion('8.0');
-                    }
-                    else if($aresult[1] == '5.0'){
+                    } else if ($aresult[1] == '5.0') {
                         $this->setVersion('9.0');
-                    }
-                    else if($aresult[1] == '6.0'){
+                    } else if ($aresult[1] == '6.0') {
                         $this->setVersion('10.0');
-                    }
-                    else if($aresult[1] == '7.0'){
+                    } else if ($aresult[1] == '7.0') {
                         $this->setVersion('11.0');
-                    }
-                    else if($aresult[1] == '8.0'){
+                    } else if ($aresult[1] == '8.0') {
                         $this->setVersion('11.0');
                     }
                 }
-                if(stripos($this->_agent, 'IEMobile') !== false) {
+                if (stripos($this->_agent, 'IEMobile') !== false) {
                     $this->setBrowser(self::BROWSER_POCKET_IE);
                     $this->setMobile(true);
                 }
@@ -1287,7 +1283,7 @@ class Browser
                 $this->setBrowser(self::BROWSER_FIREFOX);
                 return true;
             }
-        } elseif ( preg_match("/FxiOS[\/ \(]([^ ;\)]+)/i", $this->_agent, $matches) ) {
+        } elseif (preg_match("/FxiOS[\/ \(]([^ ;\)]+)/i", $this->_agent, $matches)) {
             $this->setVersion($matches[1]);
             $this->setBrowser(self::BROWSER_FIREFOX);
             //Firefox on Android
@@ -1386,7 +1382,8 @@ class Browser
      */
     protected function checkBrowserSafari()
     {
-        if (stripos($this->_agent, 'Safari') !== false
+        if (
+            stripos($this->_agent, 'Safari') !== false
             && stripos($this->_agent, 'iPhone') === false
             && stripos($this->_agent, 'iPod') === false
         ) {
@@ -1541,7 +1538,6 @@ class Browser
             $this->checkForFacebookIos();
             $this->setMobile(true);
             return true;
-
         }
         return false;
     }
@@ -1693,8 +1689,8 @@ class Browser
             $this->_platform = self::PLATFORM_ANDROID;
         } elseif (stripos($this->_agent, 'Silk') !== false) {
             $this->_platform = self::PLATFORM_FIRE_OS;
-        } elseif (stripos($this->_agent, 'linux') !== false && stripos($this->_agent, 'SMART-TV') !== false ) {
-            $this->_platform = self::PLATFORM_LINUX .'/'.self::PLATFORM_SMART_TV;
+        } elseif (stripos($this->_agent, 'linux') !== false && stripos($this->_agent, 'SMART-TV') !== false) {
+            $this->_platform = self::PLATFORM_LINUX . '/' . self::PLATFORM_SMART_TV;
         } elseif (stripos($this->_agent, 'linux') !== false) {
             $this->_platform = self::PLATFORM_LINUX;
         } else if (stripos($this->_agent, 'Nokia') !== false) {
